@@ -23,9 +23,15 @@ class ImageUploadViewController: UIViewController {
 
 }
 
+// set delegate for picker
 extension ImageUploadViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // dismiss photo library
         picker.dismiss(animated: false, completion: nil)
+        // set imageView the selected image
         imageView.image = info[.originalImage] as? UIImage
+        
+        // get selected image's metaData: Asset, creation Data, Location
+        
     }
 }
