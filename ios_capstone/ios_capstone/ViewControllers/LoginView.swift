@@ -52,21 +52,7 @@ class LoginView: UIViewController {
                     } else {
                         self.statusLabel.text = "Login failed"
                     }
-
-//                    for (key, value) in dictionary {
-//                        // access all key / value pairs in dictionary
-//                    }
-//
-//                    if let nestedDictionary = dictionary["anotherKey"] as? [String: Any] {
-//                        // access nested dictionary values by key
-//                    }
                 }
-                
-                
-                
-                
-                
-                
                 print(responseJSON)
             }
             print(responseJSON ?? "No JSON data to show you! :(")
