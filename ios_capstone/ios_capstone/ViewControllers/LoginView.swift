@@ -12,7 +12,7 @@ class LoginView: UIViewController {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
-    
+    @IBOutlet weak var statusLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Login"
@@ -45,6 +45,14 @@ class LoginView: UIViewController {
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [String: Any] {
 
+                
+                if let dictionary = responseJSON as? [String: Any] {
+                    if let number = dictionary["token"] as? String {
+                        self.statusLabel.text = "Login successful"
+                    } else {
+                        self.statusLabel.text = "Login failed"
+                    }
+                }
                 print(responseJSON)
             }
             print(responseJSON ?? "No JSON data to show you! :(")
