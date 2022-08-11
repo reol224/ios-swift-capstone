@@ -391,11 +391,18 @@
                                     <constraint firstAttribute="height" constant="30" id="9H7-vX-GSy"/>
                                     <constraint firstAttribute="width" secondItem="qct-Zj-gjC" secondAttribute="height" multiplier="253:30" id="9ku-5m-Ru4"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Don't have an account yet?"/>
                                 <connections>
                                     <segue destination="ark-Qb-dgk" kind="show" id="z5f-fe-bUV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Km-m3-dDD">
+                                <rect key="frame" x="81" y="422" width="253" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GOQ-vW-Wx0"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
@@ -416,6 +423,7 @@
                     <navigationItem key="navigationItem" id="NCi-cY-UWH"/>
                     <connections>
                         <outlet property="password" destination="udQ-9u-Hkn" id="Aad-rH-8pm"/>
+                        <outlet property="statusLabel" destination="9Km-m3-dDD" id="bqS-Y2-bdO"/>
                         <outlet property="username" destination="QOH-Oj-IXO" id="jQK-pH-uxo"/>
                     </connections>
                 </viewController>
@@ -468,7 +476,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zd8-aO-Mak">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zd8-aO-Mak">
                                 <rect key="frame" x="69" y="343" width="276" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Zd8-aO-Mak" secondAttribute="height" multiplier="69:10" id="PhK-S7-dBq"/>
@@ -490,9 +498,13 @@
                                     <action selector="register:" destination="ark-Qb-dgk" eventType="touchUpInside" id="02t-0A-ETl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLa-DF-lzU">
-                                <rect key="frame" x="174" y="473" width="67" height="30"/>
-                                <state key="normal" title="Button"/>
+
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLa-DF-lzU">
+                                <rect key="frame" x="117" y="473" width="180" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KLa-DF-lzU" secondAttribute="height" multiplier="6:1" id="xsn-Rt-ROG"/>
+                                </constraints>
+                                <state key="normal" title="Need help?"/>
                                 <connections>
                                     <segue destination="0vy-SB-d0d" kind="show" id="BkW-cA-tmr"/>
                                 </connections>
@@ -502,8 +514,10 @@
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                         <constraints>
                             <constraint firstItem="Hwv-qs-Y1S" firstAttribute="top" secondItem="ES8-VS-a7O" secondAttribute="top" id="0Ym-xH-nX1"/>
+                            <constraint firstItem="ES8-VS-a7O" firstAttribute="trailing" secondItem="KLa-DF-lzU" secondAttribute="trailing" constant="117" id="4mV-LY-f8H"/>
                             <constraint firstItem="dEv-ae-LKd" firstAttribute="top" secondItem="Hwv-qs-Y1S" secondAttribute="bottom" constant="20" id="ICG-J4-vMs"/>
                             <constraint firstItem="FDo-tW-anE" firstAttribute="centerX" secondItem="0Pa-ah-6hc" secondAttribute="centerX" id="JyA-02-MeY"/>
+                            <constraint firstItem="KLa-DF-lzU" firstAttribute="top" secondItem="Mat-e5-lJd" secondAttribute="bottom" constant="28" id="Qhx-vF-hW4"/>
                             <constraint firstItem="Nw7-Zp-YxN" firstAttribute="centerX" secondItem="0Pa-ah-6hc" secondAttribute="centerX" id="R9d-TX-nf4"/>
                             <constraint firstItem="Zd8-aO-Mak" firstAttribute="centerX" secondItem="0Pa-ah-6hc" secondAttribute="centerX" id="WHU-Xf-jPU"/>
                             <constraint firstItem="Mat-e5-lJd" firstAttribute="centerX" secondItem="0Pa-ah-6hc" secondAttribute="centerX" id="dLf-CP-7Y5"/>
@@ -512,6 +526,7 @@
                             <constraint firstItem="Hwv-qs-Y1S" firstAttribute="centerX" secondItem="0Pa-ah-6hc" secondAttribute="centerX" id="gMk-fq-qxF"/>
                             <constraint firstItem="KLa-DF-lzU" firstAttribute="top" secondItem="Mat-e5-lJd" secondAttribute="bottom" constant="30" id="hGU-rV-SQ6"/>
                             <constraint firstItem="Zd8-aO-Mak" firstAttribute="top" secondItem="FDo-tW-anE" secondAttribute="bottom" constant="20" id="mcR-th-wkP"/>
+                            <constraint firstItem="KLa-DF-lzU" firstAttribute="leading" secondItem="ES8-VS-a7O" secondAttribute="leading" constant="117" id="uLB-2W-Agd"/>
                             <constraint firstItem="dEv-ae-LKd" firstAttribute="centerX" secondItem="0Pa-ah-6hc" secondAttribute="centerX" id="uig-i5-2zb"/>
                             <constraint firstItem="Mat-e5-lJd" firstAttribute="top" secondItem="Zd8-aO-Mak" secondAttribute="bottom" constant="20" id="wLq-U1-wdB"/>
                         </constraints>
@@ -526,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKI-Uq-gGh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4084" y="1304"/>
+            <point key="canvasLocation" x="4082.6086956521744" y="1303.7946428571429"/>
         </scene>
         <!--Help View-->
         <scene sceneID="9iO-QP-WSL">
