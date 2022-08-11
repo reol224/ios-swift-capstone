@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e8A-wT-c6H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e8A-wT-c6H">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -33,18 +32,93 @@
         <!--Post photo-->
         <scene sceneID="kvz-Wn-R3o">
             <objects>
-                <viewController id="RU0-LS-i8u" sceneMemberID="viewController">
+                <viewController id="RU0-LS-i8u" customClass="ImageUploadViewController" customModule="ios_capstone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="guq-pj-Ibd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload" translatesAutoresizingMaskIntoConstraints="NO" id="K66-oK-LoG">
+                                <rect key="frame" x="20" y="66" width="374" height="200"/>
+                                <color key="backgroundColor" red="0.9693946242" green="0.96953016520000002" blue="0.96935182809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="9H5-Kx-lWL"/>
+                                    <constraint firstAttribute="height" constant="200" id="ucI-Q6-zD7"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RPo-IP-yDA" appends="YES" id="leH-sX-T5M"/>
+                                </connections>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZMK-J8-ou5">
+                                <rect key="frame" x="20" y="318" width="374" height="370"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Em-cv-JBa">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTp-PB-SiO">
+                                        <rect key="frame" x="0.0" y="56" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Describe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaL-uj-UXL">
+                                        <rect key="frame" x="0.0" y="112" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E10-x2-NQ3">
+                                        <rect key="frame" x="0.0" y="168" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOL-U6-QFo">
+                                        <rect key="frame" x="0.0" y="224" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="37.833431  -125.5121759" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKq-Xn-zcF">
+                                        <rect key="frame" x="0.0" y="280" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bto-YR-Z0T">
+                                        <rect key="frame" x="0.0" y="336" width="374" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="UnC-dk-Ktn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZMK-J8-ou5" firstAttribute="top" secondItem="K66-oK-LoG" secondAttribute="bottom" constant="52" id="CLN-nn-DV1"/>
+                            <constraint firstItem="UnC-dk-Ktn" firstAttribute="trailing" secondItem="ZMK-J8-ou5" secondAttribute="trailing" constant="20" id="CcL-dR-Uev"/>
+                            <constraint firstItem="K66-oK-LoG" firstAttribute="leading" secondItem="UnC-dk-Ktn" secondAttribute="leading" constant="20" id="bqS-5R-6EC"/>
+                            <constraint firstItem="ZMK-J8-ou5" firstAttribute="leading" secondItem="UnC-dk-Ktn" secondAttribute="leading" constant="20" id="gU5-KT-yzQ"/>
+                            <constraint firstItem="K66-oK-LoG" firstAttribute="top" secondItem="UnC-dk-Ktn" secondAttribute="top" constant="22" id="ikw-lW-ckf"/>
+                            <constraint firstItem="UnC-dk-Ktn" firstAttribute="trailing" secondItem="K66-oK-LoG" secondAttribute="trailing" constant="20" id="lkZ-hM-z5R"/>
+                            <constraint firstItem="ZMK-J8-ou5" firstAttribute="top" secondItem="K66-oK-LoG" secondAttribute="bottom" constant="52" id="qvJ-kd-H2J"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Post photo" image="plus.rectangle.fill" catalog="system" id="NZD-Os-5mT"/>
+                    <connections>
+                        <outlet property="imageView" destination="K66-oK-LoG" id="3sZ-Ef-Olr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMo-aU-Acv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="RPo-IP-yDA">
+                    <connections>
+                        <action selector="tapImageView:" destination="RU0-LS-i8u" id="Ozc-Ej-dGX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2046" y="442"/>
+            <point key="canvasLocation" x="2044.9275362318842" y="441.96428571428572"/>
         </scene>
         <!--Photo Detail-->
         <scene sceneID="KkQ-PW-em7">
@@ -145,7 +219,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="32o-gu-wvP">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="32o-gu-wvP" id="Sey-F2-V4X">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -285,7 +359,6 @@
                                     <constraint firstAttribute="width" secondItem="qct-Zj-gjC" secondAttribute="height" multiplier="253:30" id="9ku-5m-Ru4"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Don't have an account?"/>
                                 <connections>
                                     <segue destination="ark-Qb-dgk" kind="show" id="z5f-fe-bUV"/>
                                 </connections>
@@ -371,7 +444,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-e5-lJd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-e5-lJd">
                                 <rect key="frame" x="69" y="403" width="276" height="40"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -422,6 +495,7 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="upload" width="500" height="549"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -436,6 +510,9 @@
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

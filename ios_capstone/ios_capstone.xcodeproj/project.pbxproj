@@ -15,6 +15,7 @@
 		044AC4DB28A5564100CFC7D0 /* photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4DA28A5564100CFC7D0 /* photos.swift */; };
 		044AC4DD28A5571D00CFC7D0 /* photoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4DC28A5571D00CFC7D0 /* photoMap.swift */; };
 		044AC4DF28A5576500CFC7D0 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */; };
+		E062B26828A56345006183DC /* ImageUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E062B26728A56345006183DC /* ImageUploadViewController.swift */; };
 		E0FE458328A4BDD100A4D5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458228A4BDD100A4D5C9 /* AppDelegate.swift */; };
 		E0FE458528A4BDD100A4D5C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458428A4BDD100A4D5C9 /* SceneDelegate.swift */; };
 		E0FE458728A4BDD100A4D5C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458628A4BDD100A4D5C9 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		044AC4DA28A5564100CFC7D0 /* photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = photos.swift; path = structs/photos.swift; sourceTree = "<group>"; };
 		044AC4DC28A5571D00CFC7D0 /* photoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = photoMap.swift; path = utils/photoMap.swift; sourceTree = "<group>"; };
 		044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoDetail.swift; path = ViewControllers/PhotoDetail.swift; sourceTree = "<group>"; };
+		E062B26728A56345006183DC /* ImageUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadViewController.swift; sourceTree = "<group>"; };
 		E0FE457F28A4BDD100A4D5C9 /* ios_capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_capstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FE458228A4BDD100A4D5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0FE458428A4BDD100A4D5C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				E0FE458628A4BDD100A4D5C9 /* ViewController.swift */,
 				044AC4CC28A5398800CFC7D0 /* LoginView.swift */,
 				044AC4CE28A53EB800CFC7D0 /* RegisterView.swift */,
+				E062B26728A56345006183DC /* ImageUploadViewController.swift */,
 				044AC4D428A5536A00CFC7D0 /* PhotoListView.swift */,
 				044AC4D628A5555D00CFC7D0 /* MapView.swift */,
 				044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */,
@@ -288,6 +291,7 @@
 				E0FE458D28A4BDD100A4D5C9 /* ios_capstone.xcdatamodeld in Sources */,
 				044AC4D728A5555D00CFC7D0 /* MapView.swift in Sources */,
 				044AC4D928A555FD00CFC7D0 /* request.swift in Sources */,
+				E062B26828A56345006183DC /* ImageUploadViewController.swift in Sources */,
 				E0FE458728A4BDD100A4D5C9 /* ViewController.swift in Sources */,
 				044AC4DB28A5564100CFC7D0 /* photos.swift in Sources */,
 				044AC4DD28A5571D00CFC7D0 /* photoMap.swift in Sources */,
