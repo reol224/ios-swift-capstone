@@ -358,11 +358,18 @@
                                     <constraint firstAttribute="height" constant="30" id="9H7-vX-GSy"/>
                                     <constraint firstAttribute="width" secondItem="qct-Zj-gjC" secondAttribute="height" multiplier="253:30" id="9ku-5m-Ru4"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Don't have an account yet?"/>
                                 <connections>
                                     <segue destination="ark-Qb-dgk" kind="show" id="z5f-fe-bUV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Km-m3-dDD">
+                                <rect key="frame" x="81" y="422" width="253" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GOQ-vW-Wx0"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
@@ -383,6 +390,7 @@
                     <navigationItem key="navigationItem" id="NCi-cY-UWH"/>
                     <connections>
                         <outlet property="password" destination="udQ-9u-Hkn" id="Aad-rH-8pm"/>
+                        <outlet property="statusLabel" destination="9Km-m3-dDD" id="bqS-Y2-bdO"/>
                         <outlet property="username" destination="QOH-Oj-IXO" id="jQK-pH-uxo"/>
                     </connections>
                 </viewController>
