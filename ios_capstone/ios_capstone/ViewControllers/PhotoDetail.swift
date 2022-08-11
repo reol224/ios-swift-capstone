@@ -8,8 +8,35 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Foundation
+
+struct WeatherData:Codable {
+        let base: String
+        let visibility: Int
+        let dt: Int
+        let main: Main
+        let timezone, id: Int
+        let name: String
+        let cod: Int
+}
+struct Main: Codable {
+    let temp, feelsLike, tempMin, tempMax: Double
+    let pressure, humidity: Int
+
+    enum CodingKeys: String, CodingKey {
+        case temp
+        case feelsLike = "feels_like"
+        case tempMin = "temp_min"
+        case tempMax = "temp_max"
+        case pressure, humidity
+    }
+}
 
 class PhotoDetail: UIViewController {
+    
+    
+    let urlApi = "https://api.openweathermap.org/data/2.5/weather?appid=debc05ab53796060495b9ab1f024be9e"
+
 
     var photoId : Int? // receive photo id from map view
     var photo : Photo? // save photo info
@@ -20,6 +47,7 @@ class PhotoDetail: UIViewController {
     @IBOutlet weak var despLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var positionMapView: MKMapView!
+    @IBOutlet weak var temp: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +73,7 @@ class PhotoDetail: UIViewController {
     }
     
     func showPhotoDetail() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [self] in
             // update info on view
             self.titleLabel.text = self.photo?.title
             self.despLabel.text = self.photo?.resultDescription
@@ -57,6 +85,42 @@ class PhotoDetail: UIViewController {
             let pin = PhotoAnnotation(title: self.photo?.title ?? "Here", coordinate: coord, photoId: self.photo?.id ?? 0)
             self.positionMapView.addAnnotation(pin)
             self.zoomToCurrentLocation(coord)
+            getWeatherData(lat: self.photo?.position.latitude ?? 0, lon: self.photo?.position.longitude ?? 0)
+        }
+    }
+    func getWeatherData(lat: Double, lon: Double) {
+        let urlSession = URLSession(configuration: .default)
+        
+        //pass Long and lat
+        let url = URL(string: urlApi+"&lat="+String(lat) + "&lon="+String(lon))
+        if let url = url {
+            let dataTask = urlSession.dataTask(with: url) { (data, response, error) in
+                if let data = data {
+                    print(data)
+                 //Decoding the data
+                    let jsonDecoder = JSONDecoder()
+                    do {
+                        let readableData =   try jsonDecoder.decode(WeatherData.self, from: data)
+                        let icon = ""
+                       
+                        
+                        DispatchQueue.main.async {
+                            let imgUrl = URL(string: "https://openweathermap.org/img/wn/"+icon+"@2x.png")
+                            let data = try? Data(contentsOf: imgUrl!)
+                            
+                            self.temp.text = String(Int(readableData.main.temp - 273.15)) + "°"
+                            print(data as Any)
+                            }
+                        
+                    }
+                    catch{
+                        print("Not Able to get data ☹️")
+                        
+                    }
+                }
+            }
+                        
+            dataTask.resume()
         }
     }
 
