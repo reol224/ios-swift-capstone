@@ -58,7 +58,6 @@ class PhotoDetail: UIViewController {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var despLabel: UILabel!
-    
     @IBOutlet weak var weather: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var positionMapView: MKMapView!
