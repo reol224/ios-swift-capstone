@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e8A-wT-c6H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e8A-wT-c6H">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -202,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydq-HF-Ule" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3411.594202898551" y="259.82142857142856"/>
+            <point key="canvasLocation" x="2909" y="264"/>
         </scene>
         <!--Account-->
         <scene sceneID="z0T-V1-Ghv">
@@ -221,6 +222,22 @@
             </objects>
             <point key="canvasLocation" x="2045" y="1304"/>
         </scene>
+        <!--Message View-->
+        <scene sceneID="R10-db-FjX">
+            <objects>
+                <viewController storyboardIdentifier="MessageView" id="drI-dP-azF" customClass="MessageView" customModule="ios_capstone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aKs-UP-dk1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KlP-2z-djF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TYu-Ly-Hqh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xd2-jg-XTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4083" y="-943"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="UEM-mB-zR2">
             <objects>
@@ -231,7 +248,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="32o-gu-wvP">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="32o-gu-wvP" id="Sey-F2-V4X">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -245,6 +262,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="ecJ-4T-ocT">
+                        <barButtonItem key="leftBarButtonItem" title="Messages" image="message" catalog="system" id="9qh-m3-cvv">
+                            <connections>
+                                <segue destination="drI-dP-azF" kind="show" id="nCX-nV-8xi"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="map" catalog="system" id="tqv-UV-3VN">
                             <connections>
                                 <segue destination="lrC-bg-x6g" kind="show" id="riY-kf-01Q"/>
@@ -284,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Pu-FD-wz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3851" y="-530"/>
+            <point key="canvasLocation" x="4083" y="8"/>
         </scene>
         <!--Photos-->
         <scene sceneID="cWI-2T-sxf">
@@ -469,6 +491,14 @@
                                     <action selector="register:" destination="ark-Qb-dgk" eventType="touchUpInside" id="02t-0A-ETl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLa-DF-lzU">
+                                <rect key="frame" x="174" y="473" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <segue destination="0vy-SB-d0d" kind="show" id="BkW-cA-tmr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ES8-VS-a7O"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
@@ -482,6 +512,7 @@
                             <constraint firstItem="FDo-tW-anE" firstAttribute="top" secondItem="Nw7-Zp-YxN" secondAttribute="bottom" constant="20" id="fJs-Ic-WHV"/>
                             <constraint firstItem="Nw7-Zp-YxN" firstAttribute="top" secondItem="dEv-ae-LKd" secondAttribute="bottom" constant="20" id="fOE-aY-veD"/>
                             <constraint firstItem="Hwv-qs-Y1S" firstAttribute="centerX" secondItem="0Pa-ah-6hc" secondAttribute="centerX" id="gMk-fq-qxF"/>
+                            <constraint firstItem="KLa-DF-lzU" firstAttribute="top" secondItem="Mat-e5-lJd" secondAttribute="bottom" constant="30" id="hGU-rV-SQ6"/>
                             <constraint firstItem="Zd8-aO-Mak" firstAttribute="top" secondItem="FDo-tW-anE" secondAttribute="bottom" constant="20" id="mcR-th-wkP"/>
                             <constraint firstItem="dEv-ae-LKd" firstAttribute="centerX" secondItem="0Pa-ah-6hc" secondAttribute="centerX" id="uig-i5-2zb"/>
                             <constraint firstItem="Mat-e5-lJd" firstAttribute="top" secondItem="Zd8-aO-Mak" secondAttribute="bottom" constant="20" id="wLq-U1-wdB"/>
@@ -499,10 +530,36 @@
             </objects>
             <point key="canvasLocation" x="4084" y="1304"/>
         </scene>
+        <!--Help View-->
+        <scene sceneID="9iO-QP-WSL">
+            <objects>
+                <viewController id="0vy-SB-d0d" customClass="HelpView" customModule="ios_capstone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bMG-zy-4EZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdS-Bf-8Hx">
+                                <rect key="frame" x="20" y="124" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6QG-c1-Kia"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Gj6-cb-vZl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MzI-Rs-tf2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5128.985507246377" y="1303.7946428571429"/>
+        </scene>
     </scenes>
     <resources>
         <image name="lock" catalog="system" width="128" height="128"/>
         <image name="map" catalog="system" width="128" height="110"/>
+        <image name="message" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="photo" catalog="system" width="128" height="93"/>
