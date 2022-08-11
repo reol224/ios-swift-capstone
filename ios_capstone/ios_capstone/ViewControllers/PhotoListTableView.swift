@@ -32,7 +32,7 @@ class PhotoListTableView: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell")!
         if (self.photos != nil){
             let photo = self.photos?.results[indexPath.row]
-            cell.textLabel?.text = photo?.title
+            cell.textLabel?.text = "\(photo?.thumbURL)"
         }
         return cell
     }
