@@ -14,6 +14,7 @@ struct WeatherData:Codable {
         let base: String
         let visibility: Int
         let dt: Int
+    let weather: [Weather]
         let main: Main
         let timezone, id: Int
         let name: String
@@ -31,6 +32,17 @@ struct Main: Codable {
         case pressure, humidity
     }
 }
+struct Weather: Codable {
+    let id: Int
+    let main, weatherDescription, icon: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, main
+        case weatherDescription = "description"
+        case icon
+    }
+}
+
 
 class PhotoDetail: UIViewController {
     
@@ -42,9 +54,12 @@ class PhotoDetail: UIViewController {
     var photo : Photo? // save photo info
     var photoData : Data? // save image data
     
+    @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var despLabel: UILabel!
+    
+    @IBOutlet weak var weather: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var positionMapView: MKMapView!
     @IBOutlet weak var temp: UILabel!
@@ -104,14 +119,24 @@ class PhotoDetail: UIViewController {
                     let jsonDecoder = JSONDecoder()
                     do {
                         let readableData =   try jsonDecoder.decode(WeatherData.self, from: data)
-                        let icon = ""
-                       
                         
+                        let weathers = readableData.weather
+                        var icon = ""
+                        var wMain = ""
+                        for weather in weathers {
+                           //Print on Console
+                            print(weather.id )
+                            print(weather.main )
+                            icon = weather.icon
+                            wMain = weather.main
+                            break
+                        }
                         DispatchQueue.main.async {
                             let imgUrl = URL(string: "https://openweathermap.org/img/wn/"+icon+"@2x.png")
                             let data = try? Data(contentsOf: imgUrl!)
-                            
-                            self.temp.text = String(Int(readableData.main.temp - 273.15)) + "°"
+                            self.icon.image = UIImage(data: data!)
+                            self.weather.text = wMain
+                            self.temp.text = "Temp : " + String(Int(readableData.main.temp - 273.15)) + "°"
                             print(data as Any)
                             }
                         
