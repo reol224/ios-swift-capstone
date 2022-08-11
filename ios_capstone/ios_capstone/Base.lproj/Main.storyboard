@@ -203,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydq-HF-Ule" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3411.594202898551" y="259.82142857142856"/>
+            <point key="canvasLocation" x="2909" y="264"/>
         </scene>
         <!--Account-->
         <scene sceneID="z0T-V1-Ghv">
@@ -236,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xd2-jg-XTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2909" y="-1259"/>
+            <point key="canvasLocation" x="4083" y="-943"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="UEM-mB-zR2">
@@ -262,15 +262,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="ecJ-4T-ocT">
-                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="Jnr-QK-YIg">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="22t-BT-wSS">
-                                <rect key="frame" x="20" y="5" width="92" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="message" catalog="system"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Messages" image="message" catalog="system" id="9qh-m3-cvv">
                             <connections>
-                                <segue destination="drI-dP-azF" kind="show" identifier="ShowMessageViewController" id="DWe-02-UCd"/>
+                                <segue destination="drI-dP-azF" kind="show" id="nCX-nV-8xi"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="map" catalog="system" id="tqv-UV-3VN">
@@ -312,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Pu-FD-wz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3851" y="-530"/>
+            <point key="canvasLocation" x="4083" y="8"/>
         </scene>
         <!--Photos-->
         <scene sceneID="cWI-2T-sxf">
