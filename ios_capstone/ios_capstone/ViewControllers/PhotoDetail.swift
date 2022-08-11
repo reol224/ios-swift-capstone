@@ -18,12 +18,11 @@ class PhotoDetail: UIViewController {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var despLabel: UILabel!
+    @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var positionMapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("-----> \(photoId!)")
 
         // fetch photo info
         getPhotoDetailAsync(id: photoId!, completion: { photo in
@@ -37,11 +36,27 @@ class PhotoDetail: UIViewController {
         })
     }
     
+    func zoomToCurrentLocation(_ location: CLLocationCoordinate2D) {
+        let delta: Double = 0.02
+        let span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
+        let region = MKCoordinateRegion(center: location, span: span)
+        
+        self.positionMapView.setRegion(region, animated: true)
+    }
+    
     func showPhotoDetail() {
         DispatchQueue.main.async {
+            // update info on view
             self.titleLabel.text = self.photo?.title
             self.despLabel.text = self.photo?.resultDescription
+            self.positionLabel.text = "Position: \(self.photo?.position.latitude ?? 0),\(self.photo?.position.longitude ?? 0)"
             self.photoImageView.image = UIImage(data: self.photoData!)
+            
+            // show a pin on map
+            let coord = CLLocationCoordinate2D(latitude: self.photo?.position.latitude ?? 0, longitude: self.photo?.position.longitude ?? 0)
+            let pin = PhotoAnnotation(title: self.photo?.title ?? "Here", coordinate: coord, photoId: self.photo?.id ?? 0)
+            self.positionMapView.addAnnotation(pin)
+            self.zoomToCurrentLocation(coord)
         }
     }
 

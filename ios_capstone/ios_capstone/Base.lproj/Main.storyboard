@@ -54,43 +54,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJO-4y-zz5">
-                                <rect key="frame" x="0.0" y="108" width="414" height="250"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AJO-4y-zz5">
+                                <rect key="frame" x="0.0" y="44" width="414" height="335"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEA-r0-4nW">
-                                <rect key="frame" x="0.0" y="397" width="414" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEA-r0-4nW">
+                                <rect key="frame" x="0.0" y="409" width="414" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3C-Nt-xgg">
-                                <rect key="frame" x="20" y="438" width="374" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3C-Nt-xgg">
+                                <rect key="frame" x="20" y="458" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XJk-on-sea">
-                                <rect key="frame" x="0.0" y="495" width="414" height="214"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XJk-on-sea">
+                                <rect key="frame" x="0.0" y="648" width="414" height="214"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XJk-on-sea" secondAttribute="height" multiplier="207:107" id="j2T-o7-2pE"/>
+                                </constraints>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lh-QL-X9k">
+                                <rect key="frame" x="20" y="499" width="374" height="129"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6Lh-QL-X9k" secondAttribute="height" multiplier="61:21" id="xT0-L3-DyD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uyf-cU-3h4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="qEA-r0-4nW" firstAttribute="top" secondItem="AJO-4y-zz5" secondAttribute="bottom" constant="30" id="4Q9-fF-lV2"/>
                             <constraint firstItem="qEA-r0-4nW" firstAttribute="leading" secondItem="Uyf-cU-3h4" secondAttribute="leading" id="8DE-Y7-NLv"/>
+                            <constraint firstItem="6Lh-QL-X9k" firstAttribute="top" secondItem="d3C-Nt-xgg" secondAttribute="bottom" constant="20" id="BmF-xP-M6X"/>
                             <constraint firstItem="Uyf-cU-3h4" firstAttribute="trailing" secondItem="qEA-r0-4nW" secondAttribute="trailing" id="Fd2-iC-v6S"/>
                             <constraint firstItem="Uyf-cU-3h4" firstAttribute="trailing" secondItem="d3C-Nt-xgg" secondAttribute="trailing" constant="20" id="Hg0-lW-CMb"/>
                             <constraint firstItem="AJO-4y-zz5" firstAttribute="trailing" secondItem="Uyf-cU-3h4" secondAttribute="trailing" id="M4g-TR-qU6"/>
                             <constraint firstItem="AJO-4y-zz5" firstAttribute="leading" secondItem="Uyf-cU-3h4" secondAttribute="leading" id="O1M-Qu-cFw"/>
                             <constraint firstItem="d3C-Nt-xgg" firstAttribute="top" secondItem="qEA-r0-4nW" secondAttribute="bottom" constant="20" id="PPa-bb-X1T"/>
+                            <constraint firstItem="6Lh-QL-X9k" firstAttribute="leading" secondItem="Uyf-cU-3h4" secondAttribute="leading" constant="20" id="Qhc-ee-SzT"/>
+                            <constraint firstItem="Uyf-cU-3h4" firstAttribute="trailing" secondItem="6Lh-QL-X9k" secondAttribute="trailing" constant="20" id="Y33-PX-skH"/>
+                            <constraint firstItem="Uyf-cU-3h4" firstAttribute="bottom" secondItem="XJk-on-sea" secondAttribute="bottom" id="a8b-iw-w3p"/>
+                            <constraint firstItem="XJk-on-sea" firstAttribute="top" secondItem="6Lh-QL-X9k" secondAttribute="bottom" constant="20" id="b2j-2Q-vSe"/>
                             <constraint firstItem="d3C-Nt-xgg" firstAttribute="leading" secondItem="Uyf-cU-3h4" secondAttribute="leading" constant="20" id="cUE-Bf-LB6"/>
+                            <constraint firstItem="XJk-on-sea" firstAttribute="trailing" secondItem="Uyf-cU-3h4" secondAttribute="trailing" id="nVi-y1-2Y0"/>
+                            <constraint firstItem="XJk-on-sea" firstAttribute="leading" secondItem="Uyf-cU-3h4" secondAttribute="leading" id="oXp-Pc-cCg"/>
                             <constraint firstItem="AJO-4y-zz5" firstAttribute="top" secondItem="Uyf-cU-3h4" secondAttribute="top" id="saj-V8-xrB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="despLabel" destination="d3C-Nt-xgg" id="2PW-MO-4ka"/>
                         <outlet property="photoImageView" destination="AJO-4y-zz5" id="Y7m-FL-eYd"/>
+                        <outlet property="positionLabel" destination="6Lh-QL-X9k" id="OZO-2i-9wb"/>
                         <outlet property="positionMapView" destination="XJk-on-sea" id="NAL-uz-DGY"/>
                         <outlet property="titleLabel" destination="qEA-r0-4nW" id="bB6-My-8j6"/>
                     </connections>
