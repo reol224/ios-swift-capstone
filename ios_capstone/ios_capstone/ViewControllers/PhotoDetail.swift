@@ -85,9 +85,12 @@ class PhotoDetail: UIViewController {
             let pin = PhotoAnnotation(title: self.photo?.title ?? "Here", coordinate: coord, photoId: self.photo?.id ?? 0)
             self.positionMapView.addAnnotation(pin)
             self.zoomToCurrentLocation(coord)
+            
+            // show the weather
             getWeatherData(lat: self.photo?.position.latitude ?? 0, lon: self.photo?.position.longitude ?? 0)
         }
     }
+    
     func getWeatherData(lat: Double, lon: Double) {
         let urlSession = URLSession(configuration: .default)
         

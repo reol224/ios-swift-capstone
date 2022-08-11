@@ -17,6 +17,8 @@
 		044AC4DF28A5576500CFC7D0 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */; };
 		044AC4E128A5714D00CFC7D0 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4E028A5714D00CFC7D0 /* MessageView.swift */; };
 		044AC4E328A572BF00CFC7D0 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4E228A572BF00CFC7D0 /* HelpView.swift */; };
+		044AC4EA28A5899A00CFC7D0 /* PhotoListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4E828A5899A00CFC7D0 /* PhotoListTableView.swift */; };
+		044AC4EB28A5899A00CFC7D0 /* PhotoListTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044AC4E928A5899A00CFC7D0 /* PhotoListTableView.xib */; };
 		E062B26828A56345006183DC /* ImageUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E062B26728A56345006183DC /* ImageUploadViewController.swift */; };
 		E0FE458328A4BDD100A4D5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458228A4BDD100A4D5C9 /* AppDelegate.swift */; };
 		E0FE458528A4BDD100A4D5C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458428A4BDD100A4D5C9 /* SceneDelegate.swift */; };
@@ -57,6 +59,8 @@
 		044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoDetail.swift; path = ViewControllers/PhotoDetail.swift; sourceTree = "<group>"; };
 		044AC4E028A5714D00CFC7D0 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageView.swift; path = ViewControllers/MessageView.swift; sourceTree = "<group>"; };
 		044AC4E228A572BF00CFC7D0 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelpView.swift; path = ViewControllers/HelpView.swift; sourceTree = "<group>"; };
+		044AC4E828A5899A00CFC7D0 /* PhotoListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoListTableView.swift; path = ViewControllers/PhotoListTableView.swift; sourceTree = "<group>"; };
+		044AC4E928A5899A00CFC7D0 /* PhotoListTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoListTableView.xib; path = ViewControllers/PhotoListTableView.xib; sourceTree = "<group>"; };
 		E062B26728A56345006183DC /* ImageUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadViewController.swift; sourceTree = "<group>"; };
 		E0FE457F28A4BDD100A4D5C9 /* ios_capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_capstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FE458228A4BDD100A4D5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				044AC4E228A572BF00CFC7D0 /* HelpView.swift */,
 				E062B26728A56345006183DC /* ImageUploadViewController.swift */,
 				044AC4D428A5536A00CFC7D0 /* PhotoListView.swift */,
+				044AC4E828A5899A00CFC7D0 /* PhotoListTableView.swift */,
+				044AC4E928A5899A00CFC7D0 /* PhotoListTableView.xib */,
 				044AC4D628A5555D00CFC7D0 /* MapView.swift */,
 				044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */,
 				E0FE458828A4BDD100A4D5C9 /* Main.storyboard */,
@@ -267,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044AC4EB28A5899A00CFC7D0 /* PhotoListTableView.xib in Resources */,
 				E0FE459228A4BDD300A4D5C9 /* LaunchScreen.storyboard in Resources */,
 				E0FE458F28A4BDD300A4D5C9 /* Assets.xcassets in Resources */,
 				E0FE458A28A4BDD100A4D5C9 /* Main.storyboard in Resources */,
@@ -306,6 +313,7 @@
 				044AC4CF28A53EB900CFC7D0 /* RegisterView.swift in Sources */,
 				044AC4DF28A5576500CFC7D0 /* PhotoDetail.swift in Sources */,
 				044AC4CD28A5398800CFC7D0 /* LoginView.swift in Sources */,
+				044AC4EA28A5899A00CFC7D0 /* PhotoListTableView.swift in Sources */,
 				044AC4E128A5714D00CFC7D0 /* MessageView.swift in Sources */,
 				044AC4E328A572BF00CFC7D0 /* HelpView.swift in Sources */,
 				E0FE458528A4BDD100A4D5C9 /* SceneDelegate.swift in Sources */,
