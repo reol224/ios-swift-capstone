@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		044AC4CD28A5398800CFC7D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4CC28A5398800CFC7D0 /* LoginView.swift */; };
 		044AC4CF28A53EB900CFC7D0 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4CE28A53EB800CFC7D0 /* RegisterView.swift */; };
+		044AC4D528A5536A00CFC7D0 /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4D428A5536A00CFC7D0 /* PhotoListView.swift */; };
+		044AC4D728A5555D00CFC7D0 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4D628A5555D00CFC7D0 /* MapView.swift */; };
+		044AC4D928A555FD00CFC7D0 /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4D828A555FD00CFC7D0 /* request.swift */; };
+		044AC4DB28A5564100CFC7D0 /* photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4DA28A5564100CFC7D0 /* photos.swift */; };
+		044AC4DD28A5571D00CFC7D0 /* photoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4DC28A5571D00CFC7D0 /* photoMap.swift */; };
+		044AC4DF28A5576500CFC7D0 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */; };
 		E0FE458328A4BDD100A4D5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458228A4BDD100A4D5C9 /* AppDelegate.swift */; };
 		E0FE458528A4BDD100A4D5C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458428A4BDD100A4D5C9 /* SceneDelegate.swift */; };
 		E0FE458728A4BDD100A4D5C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458628A4BDD100A4D5C9 /* ViewController.swift */; };
@@ -40,6 +46,12 @@
 /* Begin PBXFileReference section */
 		044AC4CC28A5398800CFC7D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = ViewControllers/LoginView.swift; sourceTree = "<group>"; };
 		044AC4CE28A53EB800CFC7D0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterView.swift; path = ViewControllers/RegisterView.swift; sourceTree = "<group>"; };
+		044AC4D428A5536A00CFC7D0 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoListView.swift; path = ViewControllers/PhotoListView.swift; sourceTree = "<group>"; };
+		044AC4D628A5555D00CFC7D0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = ViewControllers/MapView.swift; sourceTree = "<group>"; };
+		044AC4D828A555FD00CFC7D0 /* request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = request.swift; path = utils/request.swift; sourceTree = "<group>"; };
+		044AC4DA28A5564100CFC7D0 /* photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = photos.swift; path = structs/photos.swift; sourceTree = "<group>"; };
+		044AC4DC28A5571D00CFC7D0 /* photoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = photoMap.swift; path = utils/photoMap.swift; sourceTree = "<group>"; };
+		044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoDetail.swift; path = ViewControllers/PhotoDetail.swift; sourceTree = "<group>"; };
 		E0FE457F28A4BDD100A4D5C9 /* ios_capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_capstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FE458228A4BDD100A4D5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0FE458428A4BDD100A4D5C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,11 +117,17 @@
 		E0FE458128A4BDD100A4D5C9 /* ios_capstone */ = {
 			isa = PBXGroup;
 			children = (
+				044AC4DA28A5564100CFC7D0 /* photos.swift */,
+				044AC4D828A555FD00CFC7D0 /* request.swift */,
+				044AC4DC28A5571D00CFC7D0 /* photoMap.swift */,
 				E0FE458228A4BDD100A4D5C9 /* AppDelegate.swift */,
 				E0FE458428A4BDD100A4D5C9 /* SceneDelegate.swift */,
 				E0FE458628A4BDD100A4D5C9 /* ViewController.swift */,
 				044AC4CC28A5398800CFC7D0 /* LoginView.swift */,
 				044AC4CE28A53EB800CFC7D0 /* RegisterView.swift */,
+				044AC4D428A5536A00CFC7D0 /* PhotoListView.swift */,
+				044AC4D628A5555D00CFC7D0 /* MapView.swift */,
+				044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */,
 				E0FE458828A4BDD100A4D5C9 /* Main.storyboard */,
 				E0FE458E28A4BDD300A4D5C9 /* Assets.xcassets */,
 				E0FE459028A4BDD300A4D5C9 /* LaunchScreen.storyboard */,
@@ -268,9 +286,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0FE458D28A4BDD100A4D5C9 /* ios_capstone.xcdatamodeld in Sources */,
+				044AC4D728A5555D00CFC7D0 /* MapView.swift in Sources */,
+				044AC4D928A555FD00CFC7D0 /* request.swift in Sources */,
 				E0FE458728A4BDD100A4D5C9 /* ViewController.swift in Sources */,
+				044AC4DB28A5564100CFC7D0 /* photos.swift in Sources */,
+				044AC4DD28A5571D00CFC7D0 /* photoMap.swift in Sources */,
 				E0FE458328A4BDD100A4D5C9 /* AppDelegate.swift in Sources */,
+				044AC4D528A5536A00CFC7D0 /* PhotoListView.swift in Sources */,
 				044AC4CF28A53EB900CFC7D0 /* RegisterView.swift in Sources */,
+				044AC4DF28A5576500CFC7D0 /* PhotoDetail.swift in Sources */,
 				044AC4CD28A5398800CFC7D0 /* LoginView.swift in Sources */,
 				E0FE458528A4BDD100A4D5C9 /* SceneDelegate.swift in Sources */,
 			);
