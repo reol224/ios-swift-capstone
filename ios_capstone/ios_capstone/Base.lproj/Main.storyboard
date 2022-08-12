@@ -39,19 +39,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload" translatesAutoresizingMaskIntoConstraints="NO" id="K66-oK-LoG">
-                                <rect key="frame" x="20" y="66" width="374" height="200"/>
+                                <rect key="frame" x="20" y="64" width="374" height="180"/>
                                 <color key="backgroundColor" red="0.9693946242" green="0.96953016520000002" blue="0.96935182809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="9H5-Kx-lWL"/>
-                                    <constraint firstAttribute="height" constant="200" id="ucI-Q6-zD7"/>
+                                    <constraint firstAttribute="height" constant="180" id="ucI-Q6-zD7"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="RPo-IP-yDA" appends="YES" id="leH-sX-T5M"/>
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZMK-J8-ou5">
-                                <rect key="frame" x="20" y="308" width="374" height="404"/>
+                                <rect key="frame" x="20" y="286" width="374" height="450"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Em-cv-JBa">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
@@ -75,33 +75,42 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Describe:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaL-uj-UXL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt2-YT-HVz">
                                         <rect key="frame" x="0.0" y="184" width="374" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Describe:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaL-uj-UXL">
+                                        <rect key="frame" x="0.0" y="230" width="374" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" name="AccentColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E10-x2-NQ3">
-                                        <rect key="frame" x="0.0" y="230" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="276" width="374" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOL-U6-QFo">
-                                        <rect key="frame" x="0.0" y="276" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="322" width="374" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" name="AccentColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Auto Get from selected picture" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j3G-yJ-0PH">
-                                        <rect key="frame" x="0.0" y="322" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="368" width="374" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bto-YR-Z0T">
-                                        <rect key="frame" x="0.0" y="368" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="414" width="374" height="36"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <state key="normal" title="Upload"/>
+                                        <connections>
+                                            <action selector="uploadImage:" destination="RU0-LS-i8u" eventType="touchUpInside" id="tQe-Gc-Dw3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -113,7 +122,7 @@
                             <constraint firstItem="UnC-dk-Ktn" firstAttribute="trailing" secondItem="ZMK-J8-ou5" secondAttribute="trailing" constant="20" id="CcL-dR-Uev"/>
                             <constraint firstItem="K66-oK-LoG" firstAttribute="leading" secondItem="UnC-dk-Ktn" secondAttribute="leading" constant="20" id="bqS-5R-6EC"/>
                             <constraint firstItem="ZMK-J8-ou5" firstAttribute="leading" secondItem="UnC-dk-Ktn" secondAttribute="leading" constant="20" id="gU5-KT-yzQ"/>
-                            <constraint firstItem="K66-oK-LoG" firstAttribute="top" secondItem="UnC-dk-Ktn" secondAttribute="top" constant="22" id="ikw-lW-ckf"/>
+                            <constraint firstItem="K66-oK-LoG" firstAttribute="top" secondItem="UnC-dk-Ktn" secondAttribute="top" constant="20" id="ikw-lW-ckf"/>
                             <constraint firstItem="UnC-dk-Ktn" firstAttribute="trailing" secondItem="K66-oK-LoG" secondAttribute="trailing" constant="20" id="lkZ-hM-z5R"/>
                             <constraint firstItem="ZMK-J8-ou5" firstAttribute="top" secondItem="K66-oK-LoG" secondAttribute="bottom" constant="42" id="qvJ-kd-H2J"/>
                         </constraints>
@@ -121,6 +130,10 @@
                     <tabBarItem key="tabBarItem" title="Post photo" image="plus.rectangle.fill" catalog="system" id="NZD-Os-5mT"/>
                     <connections>
                         <outlet property="imageView" destination="K66-oK-LoG" id="3sZ-Ef-Olr"/>
+                        <outlet property="infoShow" destination="wt2-YT-HVz" id="mgX-Fb-bMc"/>
+                        <outlet property="itemDescribe" destination="E10-x2-NQ3" id="kuX-ps-5nu"/>
+                        <outlet property="itemTitle" destination="oTp-PB-SiO" id="OTd-p9-unp"/>
+                        <outlet property="keywords" destination="eit-aI-rPX" id="xZg-np-MUO"/>
                         <outlet property="position" destination="j3G-yJ-0PH" id="S2N-sG-LvD"/>
                     </connections>
                 </viewController>
