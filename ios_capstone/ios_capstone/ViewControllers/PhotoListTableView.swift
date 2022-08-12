@@ -29,17 +29,20 @@ class PhotoListTableView: UITableViewController {
     
     //What to display in each cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell")!
-        if (self.photos != nil){
-            let photo = self.photos?.results[indexPath.row]
-            cell.textLabel?.text = "\(photo?.thumbURL)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as! PhotoListCell
+        if (self.photos != nil && indexPath.row < self.photos!.results.count){
+            print("-----> \(indexPath.row)")
+            guard let photo = self.photos?.results[indexPath.row] else {
+                return cell
+            }
+            cell.loadData(photo: photo)
         }
         return cell
     }
     
     //How many rows in a section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.photos?.count ?? 0
+        return self.photos?.results.count ?? 0
     }
     
     //How many sections

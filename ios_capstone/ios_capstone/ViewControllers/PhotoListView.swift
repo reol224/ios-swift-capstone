@@ -2,37 +2,33 @@
 //  PhotoListView.swift
 //  ios_capstone
 //
-//  Created by Jack on 2022/7/29.
+//  Created by Jack on 2022/8/11.
 //
 
 import UIKit
 
 class PhotoListView: UITableViewController {
-    
-    var photos : Photos? // save photos here
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Photos"
 
-        getPhotosListAsync(completion: { photos in
-            self.photos = photos
-        })
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
+
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        // #warning Incomplete implementation, return the number of sections
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "test"
-        return cell
+        // #warning Incomplete implementation, return the number of rows
+        return 1
     }
 
     /*
