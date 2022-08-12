@@ -9,26 +9,48 @@ import UIKit
 
 class PhotoListView: UITableViewController {
 
+    
+    @IBOutlet var photoTable: UITableView!
+    var photos : Photos?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.title = "Photos"
+        self.photoTable.rowHeight = 160
+        
+        getPhotosListAsync(completion: { photos in
+            self.photos = photos
+            print("\(self.photos!.count)")
+            DispatchQueue.main.async {
+                self.photoTable.reloadData()
+            }
+        })
     }
 
-    // MARK: - Table view data source
+    //What to display in each cell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoListCell") as! PhotoListCell
+        if (self.photos != nil && indexPath.row < self.photos!.results.count){
+            guard let photo = self.photos?.results[indexPath.row] else {
+                return cell
+            }
+            cell.loadData(photo: photo)
+        }
+        return cell
+    }
+    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Photo")
+//    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
+    //How many rows in a section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        return self.photos?.results.count ?? 0
     }
 
     /*

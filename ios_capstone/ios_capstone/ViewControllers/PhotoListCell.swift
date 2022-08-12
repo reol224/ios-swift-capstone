@@ -11,12 +11,19 @@ class PhotoListCell: UITableViewCell {
 
     @IBOutlet weak var photoTitleLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
     func loadData(photo: Photo){
+        print("----> \(photo.id)")
         photoTitleLabel.text = photo.title
+        getPhotoThumbnail(photo.thumbURL!, completion: { data in
+            DispatchQueue.main.async {
+                self.photoImageView.image = UIImage(data: data)
+            }
+        })
     }
 }
