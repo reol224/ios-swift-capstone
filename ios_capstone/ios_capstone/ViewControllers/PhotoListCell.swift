@@ -18,11 +18,14 @@ class PhotoListCell: UITableViewCell {
     }
 
     func loadData(photo: Photo){
-        print("----> \(photo.id)")
         photoTitleLabel.text = photo.title
         getPhotoThumbnail(photo.thumbURL!, completion: { data in
             DispatchQueue.main.async {
-                self.photoImageView.image = UIImage(data: data)
+                let image = PhotoUIImage(data: data)
+                let scaledImage = image!.scalePreservingAspectRatio(
+                    targetSize: CGSize(width: 420, height: 240)
+                )
+                self.photoImageView.image = scaledImage
             }
         })
     }

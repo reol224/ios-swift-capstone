@@ -16,7 +16,7 @@ class PhotoListView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Photos"
-        self.photoTable.rowHeight = 160
+        self.photoTable.rowHeight = 240
         
         getPhotosListAsync(completion: { photos in
             self.photos = photos
@@ -50,7 +50,18 @@ class PhotoListView: UITableViewController {
 
     //How many rows in a section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.photos?.results.count ?? 0
+        return self.photos?.results.count ?? 1
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let photoDetailVC = storyBoard.instantiateViewController(withIdentifier: "PhotoDetail") as! PhotoDetail
+        photoDetailVC.photoId = self.photos?.results[indexPath.row].id ?? 6
+        navigationController?.pushViewController(photoDetailVC, animated: true);
     }
 
     /*
