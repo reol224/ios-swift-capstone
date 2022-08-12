@@ -4,12 +4,22 @@
 //
 //  Created by Jack on 2022/8/6.
 //
+/*
+ Group INFO
+ Jianxuan Li (8807952)
+ Iulia Danilov (8816991)
+ Krupa Suhagiya (8813230)
+ Smit Mehta (8813480)
+ Feng Zhou (8808141)
+ Parshwa Shah (8836740)
+ */
 
 import UIKit
 import MapKit
 import CoreLocation
 import Foundation
 
+//Initializing the variables with types
 struct WeatherData:Codable {
         let base: String
         let visibility: Int
@@ -20,6 +30,7 @@ struct WeatherData:Codable {
         let name: String
         let cod: Int
 }
+//Initializing variables to fetch data
 struct Main: Codable {
     let temp, feelsLike, tempMin, tempMax: Double
     let pressure, humidity: Int
@@ -32,6 +43,7 @@ struct Main: Codable {
         case pressure, humidity
     }
 }
+//variables to fetch from
 struct Weather: Codable {
     let id: Int
     let main, weatherDescription, icon: String
@@ -46,7 +58,7 @@ struct Weather: Codable {
 
 class PhotoDetail: UIViewController {
     
-    
+    //api from openweather
     let urlApi = "https://api.openweathermap.org/data/2.5/weather?appid=debc05ab53796060495b9ab1f024be9e"
 
 
@@ -105,6 +117,7 @@ class PhotoDetail: UIViewController {
         }
     }
     
+    // fetch weather info using the given location
     func getWeatherData(lat: Double, lon: Double) {
         let urlSession = URLSession(configuration: .default)
         
@@ -138,8 +151,7 @@ class PhotoDetail: UIViewController {
                             self.temp.text = "Temp : " + String(Int(readableData.main.temp - 273.15)) + "°"
                             print(data as Any)
                             }
-                        
-                    }
+                        }
                     catch{
                         print("Not Able to get data ☹️")
                         

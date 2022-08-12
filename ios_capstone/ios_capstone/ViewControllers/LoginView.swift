@@ -4,6 +4,15 @@
 //
 //  Created by Iulia on 2022/8/10.
 //
+/*
+ Group INFO
+ Jianxuan Li (8807952)
+ Iulia Danilov (8816991)
+ Krupa Suhagiya (8813230)
+ Smit Mehta (8813480)
+ Feng Zhou (8808141)
+ Parshwa Shah (8836740)
+ */
 
 import UIKit
 
@@ -22,8 +31,8 @@ class LoginView: UIViewController {
     @IBAction func login(_ sender: Any) {
         //reference https://stackoverflow.com/questions/31937686/how-to-make-http-post-request-with-json-body-in-swift
         
-        let json: [String: Any] = ["email": username.text,
-                                   "password": password.text]
+        let json: [String: Any] = ["email": username.text!,
+                                   "password": password.text!]
 
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
 
