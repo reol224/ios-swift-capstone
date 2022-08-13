@@ -19,11 +19,14 @@ import PhotosUI
 
 class ImageUploadViewController: UIViewController {
 
+    // UI fields define
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var position: UITextField!
     @IBOutlet weak var infoShow: UILabel!
     @IBOutlet weak var itemTitle: UITextField!
     @IBOutlet weak var itemDescribe: UITextField!
+    @IBOutlet weak var uploadBtn: UIButton!
+    // global variable to save upload info
     var latitude = "0.0000"
     var longitude = "0.0000"
     var imageSelected = UIImage()
@@ -33,6 +36,11 @@ class ImageUploadViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // when tap the outside of input fields close keyboard
+        // when tap the ouside of input fields close keyboard
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tap)
+        
     }
 
     // image interaction tap
@@ -51,20 +59,46 @@ class ImageUploadViewController: UIViewController {
         return jsonStr! as String
     }
     
+    // process upload and analyzing pic control
+    func setPostionFieldValue(cmd: String) {
+        DispatchQueue.main.async {
+            switch cmd {
+            case "analyzing":
+                self.position.text = "Please wait while analyzing..."
+            case "uploadPicOk":
+                self.position.text = "\(self.latitude) \(self.longitude)"
+            case "uploadPicError":
+                self.position.text = "error, please try again"
+            case "reset":
+                self.position.text = ""
+            default:
+                self.position.text = ""
+            }
+        }
+    }
+    
+    // upload step1 upload pic to aws for get 2 url info
+    // api:
+    // request post:multipart/form-data
+    //          paramName: {"photo"}, fileName: {"absolute address"}, image: UIImage()
+    // response: Dict
+    //        ["thumb_url": {}, "image_url": {}]
     func uploadImgForUrl(paramName: String, fileName: String, image: UIImage) {
+        setPostionFieldValue(cmd: "analyzing")
         let url = URL(string: "https://capstone.freeyeti.net/api/photos/upload")
 
-        // generate boundary string using a unique per-app string
+        // create boundary string using UUID().uuidString
         let boundary = UUID().uuidString
 
         let session = URLSession.shared
 
         // Set the URLRequest to POST and to the specified URL
         var urlRequest = URLRequest(url: url!)
+        // define method POST
         urlRequest.httpMethod = "POST"
 
-        // Set Content-Type Header to multipart/form-data, this is equivalent to submitting form data with file upload in a web browser
-        // And the boundary is also set here
+        // Set Content-Type Header to multipart/form-data, this is equivalent for submitting form data with file just like html form
+        // start add boundary info
         urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
         var data = Data()
@@ -82,22 +116,51 @@ class ImageUploadViewController: UIViewController {
             if error == nil {
                 let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
                 if let json = jsonData as? [String: Any] {
-                    self.uploadImgUrl = json["image_url"]! as! String
-                    self.uploadImgTbUrl = json["thumb_url"]! as! String
+                    guard let imgUrl: String = json["image_url"] as? String else {
+                        print("imgUrl error")
+                        return
+                    }
+                    
+                    guard let imgTbUrl: String = json["thumb_url"] as? String else {
+                        print("imgTbUrl error")
+                        return
+                    }
+                    // set 2 urls
+                    self.uploadImgUrl = imgUrl
+                    self.uploadImgTbUrl = imgTbUrl
                     print(json)
+                    self.setPostionFieldValue(cmd: "uploadPicOk")
                 }
+            }else {
+                self.setPostionFieldValue(cmd: "uploadPicError")
             }
         }).resume()
     }
     
+    
+    // upload title describe and aws url info to database
+    //
     func uploadImgToDatabase(url: String, thumb_url: String){
         // step2 upload info to database
-        // set url
+        // api:
+        // request post:json
+        //        {
+        //            "title": "",
+        //            "description": "",
+        //            "keywords": "",
+        //            "url": "",
+        //            "thumb_url": "",
+        //            "position": null
+        //        }
+        // response json like request
+        // create URLSession
         let session = URLSession(configuration: .default)
+        // this is the api url
         let url = "https://capstone.freeyeti.net/api/photos/"
-        var request = URLRequest(url: URL(string: url)!)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = "POST"
+        // create request object then config setValue, httpBody
+        var req = URLRequest(url: URL(string: url)!)
+        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        req.httpMethod = "POST"
         // post dict
         let postData = ["title":itemTitle.text!,"description":itemDescribe.text!,"keywords": itemTitle.text!,"url": "https://capstone.freeyeti.net\(url)",
                         "thumb_url": "https://capstone.freeyeti.net\(thumb_url)","position": [
@@ -107,12 +170,13 @@ class ImageUploadViewController: UIViewController {
 
         let postString = convertDictionaryToJSONString(dict: postData as NSDictionary)
         //print(postString)
-        request.httpBody = postString.data(using: .utf8)
+        req.httpBody = postString.data(using: .utf8)
         // task for post
-        let task = session.dataTask(with: request) { (data, response, error) in
-            do {
+        let task = session.dataTask(with: req) { (data, response, error) in
+            do { // serializetion data
                 let r = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                 print(r)
+                self.showSuccessfully()
             } catch {
                 print("network error")
                 return
@@ -121,29 +185,58 @@ class ImageUploadViewController: UIViewController {
         task.resume()
     }
     
-    // upload file start
+    // upload btn action file start
     @IBAction func uploadImage(_ sender: Any) {
+        
+        if uploadImgUrl == "" || uploadImgTbUrl == "" {
+            infoShow.text = "please do step1 first"
+            return
+        }
+        
+        if latitude == "0.0000" || longitude == "0.0000" {
+            infoShow.text = "Please wait for the analysis to complete"
+            return
+        }
         
         if itemTitle.text == "" || itemDescribe.text == "" {
             infoShow.text = "please fill in all field"
             return
         }
-        infoShow.text = "uploading..."
         
-        if uploadImgUrl != "" && uploadImgTbUrl != "" {
-            //step2 upload database
-            uploadImgToDatabase(url: uploadImgUrl, thumb_url: uploadImgTbUrl)
-            
-            infoShow.text = "Upload Successfully"
-            uploadImgUrl = ""
-            uploadImgTbUrl = ""
-            itemTitle.text = ""
-            itemDescribe.text = ""
-            position.text = ""
-        }
+        //post data to database
+        uploadImgToDatabase(url: uploadImgUrl, thumb_url: uploadImgTbUrl)
         
     }
     
+    
+    
+    // alert to show successfully upload
+    func showSuccessfully() {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "successfully", message: "Congratulations, go to the photo list page and take a look", preferredStyle: .alert)
+     
+            // add action
+            let okAction = UIAlertAction(title: "go", style: .default, handler: {
+                action in
+                self.tabBarController?.selectedIndex = 0
+                //self.performSegue(withIdentifier: "goto_Photos", sender: self)
+                
+                self.uploadImgUrl = ""
+                self.uploadImgTbUrl = ""
+                self.itemTitle.text = ""
+                self.itemDescribe.text = ""
+                self.position.text = ""
+                self.latitude = "0.0000"
+                self.longitude = "0.0000"
+                self.infoShow.text = ""
+                self.imageView.image = UIImage(named:"upload")
+                
+            })
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+    }
 }
 
 // set delegate for picker
@@ -159,7 +252,7 @@ extension ImageUploadViewController : PHPickerViewControllerDelegate {
             imageResult.itemProvider.loadObject(ofClass: UIImage.self, completionHandler: { (object, error) in
                if let image = object as? UIImage {
                 self.imageSelected = image
-                imageResult.itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { (url, error) in
+                imageResult.itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { [self] (url, error) in
                         guard let url = url else {
                             return
                         }
@@ -183,7 +276,6 @@ extension ImageUploadViewController : PHPickerViewControllerDelegate {
           // get image Assets info
           if let assetId = imageResult.assetIdentifier {
             let assetResults = PHAsset.fetchAssets(withLocalIdentifiers: [assetId], options: nil)
-            position.text = "\(String(describing: assetResults.firstObject?.location?.coordinate.latitude ?? 0.0000))   \(String(describing: assetResults.firstObject?.location?.coordinate.longitude ?? 0.0000))"
             latitude = "\(String(describing: assetResults.firstObject?.location?.coordinate.latitude ?? 0.0000))"
             longitude = "\(String(describing: assetResults.firstObject?.location?.coordinate.longitude ?? 0.0000))"
             

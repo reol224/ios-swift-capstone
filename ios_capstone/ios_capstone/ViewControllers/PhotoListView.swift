@@ -27,13 +27,6 @@ class PhotoListView: UITableViewController {
         self.navigationItem.title = "Photos"
         self.photoTable.rowHeight = 240
         
-        getPhotosListAsync(completion: { photos in
-            self.photos = photos
-            print("\(self.photos!.count)")
-            DispatchQueue.main.async {
-                self.photoTable.reloadData()
-            }
-        })
     }
 
     //What to display in each cell
@@ -71,6 +64,18 @@ class PhotoListView: UITableViewController {
         let photoDetailVC = storyBoard.instantiateViewController(withIdentifier: "PhotoDetail") as! PhotoDetail
         photoDetailVC.photoId = self.photos?.results[indexPath.row].id ?? 6
         navigationController?.pushViewController(photoDetailVC, animated: true);
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //Request the server to update the data
+        //After uploading the picture, you can see the latest data when you automatically jump to this page
+        getPhotosListAsync(completion: { photos in
+            self.photos = photos
+            print("\(self.photos!.count)")
+            DispatchQueue.main.async {
+                self.photoTable.reloadData()
+            }
+        })
     }
 
     /*
