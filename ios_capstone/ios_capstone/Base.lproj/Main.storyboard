@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e8A-wT-c6H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e8A-wT-c6H">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -316,7 +317,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="G7p-ON-no9">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G7p-ON-no9" id="3RR-6y-gXD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -345,7 +346,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoListCell" rowHeight="240" id="Za2-ob-dCK" customClass="PhotoListCell" customModule="ios_capstone" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="240"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Za2-ob-dCK" id="V8l-Qx-sXf">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
@@ -377,11 +378,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="h5e-5L-CgK">
-                        <barButtonItem key="leftBarButtonItem" title="Messages" image="message" catalog="system" id="e05-yZ-mpA">
-                            <connections>
-                                <segue destination="drI-dP-azF" kind="show" id="39j-Qz-hwH"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map" image="map" catalog="system" id="yu5-Te-IKH">
                             <connections>
                                 <segue destination="lrC-bg-x6g" kind="show" id="HFb-eA-9y9"/>
@@ -610,7 +606,6 @@
     <resources>
         <image name="lock" catalog="system" width="128" height="128"/>
         <image name="map" catalog="system" width="128" height="110"/>
-        <image name="message" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="photo" catalog="system" width="128" height="93"/>
