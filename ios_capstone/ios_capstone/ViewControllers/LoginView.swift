@@ -53,13 +53,13 @@ class LoginView: UIViewController {
             }
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [String: Any] {
-
-                
                 if let dictionary = responseJSON as? [String: Any] {
-                    if let number = dictionary["token"] as? String {
-                        self.statusLabel.text = "Login successful"
-                    } else {
-                        self.statusLabel.text = "Login failed"
+                    DispatchQueue.main.async {
+                        if let number = dictionary["token"] as? String {
+                            self.statusLabel.text = "Login successful"
+                        } else {
+                            self.statusLabel.text = "Login failed"
+                        }
                     }
                 }
                 print(responseJSON)

@@ -16,8 +16,13 @@
 
 import Foundation
 
+// photos api
 let PhotosAPI = "https://capstone.freeyeti.net/api/photos/?"
 
+//api from openweather
+let WeatherAPI = "https://api.openweathermap.org/data/2.5/weather?appid=debc05ab53796060495b9ab1f024be9e"
+
+// get the photos list
 func getPhotosListAsync(completion: @escaping(Photos) -> Void){
     guard let url = URL(string: PhotosAPI) else {
         return
@@ -40,6 +45,7 @@ func getPhotosListAsync(completion: @escaping(Photos) -> Void){
     task.resume()
 }
 
+// get the image of photo
 func getPhotoThumbnail(_ thumbUrl: String, completion: @escaping(Data) -> Void){
     guard let url = URL(string: thumbUrl) else {
         return
@@ -57,6 +63,7 @@ func getPhotoThumbnail(_ thumbUrl: String, completion: @escaping(Data) -> Void){
     task.resume()
 }
 
+// get detail by photo id
 func getPhotoDetailAsync(id: Int, completion: @escaping(Photo) -> Void){
     guard let url = URL(string: "https://capstone.freeyeti.net/api/photos/\(id)/") else {
         return
@@ -77,4 +84,36 @@ func getPhotoDetailAsync(id: Int, completion: @escaping(Photo) -> Void){
     }
     
     task.resume()
+}
+
+// fetch weather info using the given location
+func getWeatherData(lat: Double, lon: Double, completion: @escaping(Weather?, Double?) -> Void) {
+    let urlSession = URLSession(configuration: .default)
+    
+    //pass Long and lat
+    let url = URL(string: WeatherAPI + "&lat=" + String(lat) + "&lon=" + String(lon))
+    if let url = url {
+        let dataTask = urlSession.dataTask(with: url) { (data, response, error) in
+            if let data = data {
+                print(data)
+                //Decoding the data
+                let jsonDecoder = JSONDecoder()
+                do {
+                    let readableData =   try jsonDecoder.decode(WeatherData.self, from: data)
+                    let weathers = readableData.weather
+                    if let weather = weathers.first {
+                        completion(weather, readableData.main.temp)
+                    }else{
+                        completion(nil, nil)
+                    }
+                }
+                catch{
+                    print("Not Able to get data ☹️")
+                    completion(nil, nil) // return nil if error
+                }
+            }
+        }
+        
+        dataTask.resume()
+    }
 }

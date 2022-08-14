@@ -15,13 +15,12 @@
 		044AC4DD28A5571D00CFC7D0 /* photoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4DC28A5571D00CFC7D0 /* photoMap.swift */; };
 		044AC4DF28A5576500CFC7D0 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */; };
 		044AC4E128A5714D00CFC7D0 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4E028A5714D00CFC7D0 /* MessageView.swift */; };
-		044AC4E328A572BF00CFC7D0 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044AC4E228A572BF00CFC7D0 /* HelpView.swift */; };
+		04935B9228A88BB6000EBA12 /* weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04935B9128A88BB6000EBA12 /* weather.swift */; };
 		04B27CDB28A5CCAF003BC780 /* PhotoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27CDA28A5CCAF003BC780 /* PhotoListCell.swift */; };
 		04B27CDD28A5D907003BC780 /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B27CDC28A5D907003BC780 /* PhotoListView.swift */; };
-		E062B26828A56345006183DC /* ImageUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E062B26728A56345006183DC /* ImageUploadViewController.swift */; };
+		E062B26828A56345006183DC /* PostPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E062B26728A56345006183DC /* PostPhotoView.swift */; };
 		E0FE458328A4BDD100A4D5C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458228A4BDD100A4D5C9 /* AppDelegate.swift */; };
 		E0FE458528A4BDD100A4D5C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458428A4BDD100A4D5C9 /* SceneDelegate.swift */; };
-		E0FE458728A4BDD100A4D5C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458628A4BDD100A4D5C9 /* ViewController.swift */; };
 		E0FE458A28A4BDD100A4D5C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0FE458828A4BDD100A4D5C9 /* Main.storyboard */; };
 		E0FE458D28A4BDD100A4D5C9 /* ios_capstone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0FE458B28A4BDD100A4D5C9 /* ios_capstone.xcdatamodeld */; };
 		E0FE458F28A4BDD300A4D5C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0FE458E28A4BDD300A4D5C9 /* Assets.xcassets */; };
@@ -48,22 +47,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		044AC4CC28A5398800CFC7D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = ViewControllers/LoginView.swift; sourceTree = "<group>"; };
-		044AC4CE28A53EB800CFC7D0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterView.swift; path = ViewControllers/RegisterView.swift; sourceTree = "<group>"; };
-		044AC4D628A5555D00CFC7D0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = ViewControllers/MapView.swift; sourceTree = "<group>"; };
-		044AC4D828A555FD00CFC7D0 /* request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = request.swift; path = utils/request.swift; sourceTree = "<group>"; };
-		044AC4DA28A5564100CFC7D0 /* photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = photos.swift; path = structs/photos.swift; sourceTree = "<group>"; };
-		044AC4DC28A5571D00CFC7D0 /* photoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = photoMap.swift; path = utils/photoMap.swift; sourceTree = "<group>"; };
-		044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoDetail.swift; path = ViewControllers/PhotoDetail.swift; sourceTree = "<group>"; };
-		044AC4E028A5714D00CFC7D0 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageView.swift; path = ViewControllers/MessageView.swift; sourceTree = "<group>"; };
-		044AC4E228A572BF00CFC7D0 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelpView.swift; path = ViewControllers/HelpView.swift; sourceTree = "<group>"; };
-		04B27CDA28A5CCAF003BC780 /* PhotoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoListCell.swift; path = ViewControllers/PhotoListCell.swift; sourceTree = "<group>"; };
-		04B27CDC28A5D907003BC780 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoListView.swift; path = ViewControllers/PhotoListView.swift; sourceTree = "<group>"; };
-		E062B26728A56345006183DC /* ImageUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadViewController.swift; sourceTree = "<group>"; };
+		044AC4CC28A5398800CFC7D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		044AC4CE28A53EB800CFC7D0 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		044AC4D628A5555D00CFC7D0 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		044AC4D828A555FD00CFC7D0 /* request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
+		044AC4DA28A5564100CFC7D0 /* photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photos.swift; sourceTree = "<group>"; };
+		044AC4DC28A5571D00CFC7D0 /* photoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoMap.swift; sourceTree = "<group>"; };
+		044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
+		044AC4E028A5714D00CFC7D0 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		04935B9128A88BB6000EBA12 /* weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weather.swift; sourceTree = "<group>"; };
+		04B27CDA28A5CCAF003BC780 /* PhotoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListCell.swift; sourceTree = "<group>"; };
+		04B27CDC28A5D907003BC780 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
+		E062B26728A56345006183DC /* PostPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPhotoView.swift; sourceTree = "<group>"; };
 		E0FE457F28A4BDD100A4D5C9 /* ios_capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_capstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FE458228A4BDD100A4D5C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0FE458428A4BDD100A4D5C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E0FE458628A4BDD100A4D5C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E0FE458928A4BDD100A4D5C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0FE458C28A4BDD100A4D5C9 /* ios_capstone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ios_capstone.xcdatamodel; sourceTree = "<group>"; };
 		E0FE458E28A4BDD300A4D5C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +100,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04935B9028A88B94000EBA12 /* structs */ = {
+			isa = PBXGroup;
+			children = (
+				044AC4DA28A5564100CFC7D0 /* photos.swift */,
+				04935B9128A88BB6000EBA12 /* weather.swift */,
+			);
+			path = structs;
+			sourceTree = "<group>";
+		};
+		04935B9428A88D2C000EBA12 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				044AC4CC28A5398800CFC7D0 /* LoginView.swift */,
+				044AC4CE28A53EB800CFC7D0 /* RegisterView.swift */,
+				044AC4E028A5714D00CFC7D0 /* MessageView.swift */,
+				044AC4D628A5555D00CFC7D0 /* MapView.swift */,
+				044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */,
+				04B27CDA28A5CCAF003BC780 /* PhotoListCell.swift */,
+				04B27CDC28A5D907003BC780 /* PhotoListView.swift */,
+				E062B26728A56345006183DC /* PostPhotoView.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		04935B9528A88DEA000EBA12 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				044AC4D828A555FD00CFC7D0 /* request.swift */,
+				044AC4DC28A5571D00CFC7D0 /* photoMap.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		E0FE457628A4BDD100A4D5C9 = {
 			isa = PBXGroup;
 			children = (
@@ -125,21 +156,11 @@
 		E0FE458128A4BDD100A4D5C9 /* ios_capstone */ = {
 			isa = PBXGroup;
 			children = (
-				044AC4DA28A5564100CFC7D0 /* photos.swift */,
-				044AC4D828A555FD00CFC7D0 /* request.swift */,
-				044AC4DC28A5571D00CFC7D0 /* photoMap.swift */,
+				04935B9028A88B94000EBA12 /* structs */,
+				04935B9528A88DEA000EBA12 /* utils */,
+				04935B9428A88D2C000EBA12 /* ViewControllers */,
 				E0FE458228A4BDD100A4D5C9 /* AppDelegate.swift */,
 				E0FE458428A4BDD100A4D5C9 /* SceneDelegate.swift */,
-				E0FE458628A4BDD100A4D5C9 /* ViewController.swift */,
-				044AC4CC28A5398800CFC7D0 /* LoginView.swift */,
-				044AC4CE28A53EB800CFC7D0 /* RegisterView.swift */,
-				044AC4E028A5714D00CFC7D0 /* MessageView.swift */,
-				044AC4E228A572BF00CFC7D0 /* HelpView.swift */,
-				E062B26728A56345006183DC /* ImageUploadViewController.swift */,
-				04B27CDC28A5D907003BC780 /* PhotoListView.swift */,
-				04B27CDA28A5CCAF003BC780 /* PhotoListCell.swift */,
-				044AC4D628A5555D00CFC7D0 /* MapView.swift */,
-				044AC4DE28A5576500CFC7D0 /* PhotoDetail.swift */,
 				E0FE458828A4BDD100A4D5C9 /* Main.storyboard */,
 				E0FE458E28A4BDD300A4D5C9 /* Assets.xcassets */,
 				E0FE459028A4BDD300A4D5C9 /* LaunchScreen.storyboard */,
@@ -300,18 +321,17 @@
 				E0FE458D28A4BDD100A4D5C9 /* ios_capstone.xcdatamodeld in Sources */,
 				044AC4D728A5555D00CFC7D0 /* MapView.swift in Sources */,
 				044AC4D928A555FD00CFC7D0 /* request.swift in Sources */,
-				E062B26828A56345006183DC /* ImageUploadViewController.swift in Sources */,
+				E062B26828A56345006183DC /* PostPhotoView.swift in Sources */,
 				04B27CDB28A5CCAF003BC780 /* PhotoListCell.swift in Sources */,
-				E0FE458728A4BDD100A4D5C9 /* ViewController.swift in Sources */,
 				044AC4DB28A5564100CFC7D0 /* photos.swift in Sources */,
 				044AC4DD28A5571D00CFC7D0 /* photoMap.swift in Sources */,
+				04935B9228A88BB6000EBA12 /* weather.swift in Sources */,
 				E0FE458328A4BDD100A4D5C9 /* AppDelegate.swift in Sources */,
 				044AC4CF28A53EB900CFC7D0 /* RegisterView.swift in Sources */,
 				044AC4DF28A5576500CFC7D0 /* PhotoDetail.swift in Sources */,
 				044AC4CD28A5398800CFC7D0 /* LoginView.swift in Sources */,
 				044AC4E128A5714D00CFC7D0 /* MessageView.swift in Sources */,
 				04B27CDD28A5D907003BC780 /* PhotoListView.swift in Sources */,
-				044AC4E328A572BF00CFC7D0 /* HelpView.swift in Sources */,
 				E0FE458528A4BDD100A4D5C9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,13 +22,41 @@ class RegisterView: UIViewController {
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
+    @IBOutlet weak var errorMsg:UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "SignUp"
+        self.errorMsg.text = ""
+    }
+    
+    func checkAndDisplayError()->Bool{
+        let fname = self.firstNameInput?.text ?? ""
+        let lname = self.lastNameInput?.text ?? ""
+        let email = self.emailInput?.text ?? ""
+        let password = self.passwordInput?.text ?? ""
+        
+        if !fname.isEmpty && !lname.isEmpty && !email.isEmpty && !password.isEmpty{
+            if(password.count >= 8){
+                return true
+            }else{
+                errorMsg.text = "length must be 8 of the password"
+                return false
+            }
+        }else{
+            
+            errorMsg.text = "Plese fill the all fields"
+            return false
+        }
     }
     
 
     @IBAction func register(_ sender: Any) {
+        
+        if(checkAndDisplayError() == false){
+            return
+        }
+        
         let json: [String: Any] = ["email": emailInput.text!,
                                    "password": passwordInput.text!,
                                    "first_name": firstNameInput.text!,
@@ -48,12 +76,17 @@ class RegisterView: UIViewController {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
+                DispatchQueue.main.async {
+                    self.errorMsg.text = "Failed to create your account"
+                }
                 return
             }
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [String: Any] {
-                
                 print(responseJSON)
+                DispatchQueue.main.async {
+                    self.errorMsg.text = "Account created"
+                }
             }
             print(responseJSON ?? "No JSON data to show you! :(")
         }

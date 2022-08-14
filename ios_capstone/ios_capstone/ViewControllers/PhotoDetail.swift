@@ -19,49 +19,9 @@ import MapKit
 import CoreLocation
 import Foundation
 
-//Initializing the variables with types
-struct WeatherData:Codable {
-        let base: String
-        let visibility: Int
-        let dt: Int
-    let weather: [Weather]
-        let main: Main
-        let timezone, id: Int
-        let name: String
-        let cod: Int
-}
-//Initializing variables to fetch data
-struct Main: Codable {
-    let temp, feelsLike, tempMin, tempMax: Double
-    let pressure, humidity: Int
-
-    enum CodingKeys: String, CodingKey {
-        case temp
-        case feelsLike = "feels_like"
-        case tempMin = "temp_min"
-        case tempMax = "temp_max"
-        case pressure, humidity
-    }
-}
-//variables to fetch from
-struct Weather: Codable {
-    let id: Int
-    let main, weatherDescription, icon: String
-
-    enum CodingKeys: String, CodingKey {
-        case id, main
-        case weatherDescription = "description"
-        case icon
-    }
-}
-
 
 class PhotoDetail: UIViewController {
     
-    //api from openweather
-    let urlApi = "https://api.openweathermap.org/data/2.5/weather?appid=debc05ab53796060495b9ab1f024be9e"
-
-
     var photoId : Int? // receive photo id from map view
     var photo : Photo? // save photo info
     var photoData : Data? // save image data
@@ -77,6 +37,9 @@ class PhotoDetail: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.titleLabel.text = "Loading..."
+        self.despLabel.text = ""
 
         // fetch photo info
         getPhotoDetailAsync(id: photoId!, completion: { photo in
@@ -112,56 +75,29 @@ class PhotoDetail: UIViewController {
             self.positionMapView.addAnnotation(pin)
             self.zoomToCurrentLocation(coord)
             
-            // show the weather
-            getWeatherData(lat: self.photo?.position.latitude ?? 0, lon: self.photo?.position.longitude ?? 0)
+            // show the weather data on view
+            self.showWeatherDetail(self.photo?.position.latitude ?? 0, self.photo?.position.longitude ?? 0)
         }
     }
     
-    // fetch weather info using the given location
-    func getWeatherData(lat: Double, lon: Double) {
-        let urlSession = URLSession(configuration: .default)
-        
-        //pass Long and lat
-        let url = URL(string: urlApi+"&lat="+String(lat) + "&lon="+String(lon))
-        if let url = url {
-            let dataTask = urlSession.dataTask(with: url) { (data, response, error) in
-                if let data = data {
-                    print(data)
-                 //Decoding the data
-                    let jsonDecoder = JSONDecoder()
-                    do {
-                        let readableData =   try jsonDecoder.decode(WeatherData.self, from: data)
-                        
-                        let weathers = readableData.weather
-                        var icon = ""
-                        var wMain = ""
-                        for weather in weathers {
-                           //Print on Console
-                            print(weather.id )
-                            print(weather.main )
-                            icon = weather.icon
-                            wMain = weather.main
-                            break
-                        }
-                        DispatchQueue.main.async {
-                            let imgUrl = URL(string: "https://openweathermap.org/img/wn/"+icon+"@2x.png")
-                            let data = try? Data(contentsOf: imgUrl!)
-                            self.icon.image = UIImage(data: data!)
-                            self.weather.text = wMain
-                            self.temp.text = "Temp : " + String(Int(readableData.main.temp - 273.15)) + "°"
-                            print(data as Any)
-                            }
-                        }
-                    catch{
-                        print("Not Able to get data ☹️")
-                        
-                    }
+    func showWeatherDetail(_ latitude: Double, _ longitude: Double){
+        // show the weather
+        getWeatherData(lat: latitude, lon: longitude, completion: {
+            weather, temp in
+            
+            DispatchQueue.main.async {
+                // if there is icon url
+                if weather?.icon != nil {
+                    let imgUrl = URL(string: "https://openweathermap.org/img/wn/" + weather!.icon + "@2x.png")
+                    let data = try? Data(contentsOf: imgUrl!)
+                    self.icon.image = UIImage(data: data!)
+                }
+                
+                if weather?.main != nil && temp != nil {
+                    self.weather.text = weather!.main
+                    self.temp.text = "Temp : " + String(((temp! - 273.15) * 100).rounded() / 100) + "°"
                 }
             }
-                        
-            dataTask.resume()
-        }
+        })
     }
-
-    
 }

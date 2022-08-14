@@ -17,7 +17,7 @@
 import UIKit
 import PhotosUI
 
-class ImageUploadViewController: UIViewController {
+class PostPhotoView: UIViewController {
 
     // UI fields define
     @IBOutlet weak var imageView: UIImageView!
@@ -240,7 +240,7 @@ class ImageUploadViewController: UIViewController {
 }
 
 // set delegate for picker
-extension ImageUploadViewController : PHPickerViewControllerDelegate {
+extension PostPhotoView : PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
         guard !results.isEmpty else {
@@ -249,26 +249,26 @@ extension ImageUploadViewController : PHPickerViewControllerDelegate {
 
           let imageResult = results[0]
             // change imageVIew
-            imageResult.itemProvider.loadObject(ofClass: UIImage.self, completionHandler: { (object, error) in
-               if let image = object as? UIImage {
+        imageResult.itemProvider.loadObject(ofClass: UIImage.self, completionHandler: { (object, error) in
+            if let image = object as? UIImage {
                 self.imageSelected = image
                 imageResult.itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { [self] (url, error) in
-                        guard let url = url else {
-                            return
-                        }
+                    guard let url = url else {
+                        return
+                    }
                     //print( url.absoluteURL)
                     // set selected image url and url name
                     self.imageSelectedName = url.lastPathComponent
                     self.uploadImgForUrl(paramName: "photo", fileName: url.lastPathComponent, image: image)
-                    }
-                  DispatchQueue.main.async {
-                     // Use UIImage
+                }
+                DispatchQueue.main.async {
+                    // Use UIImage
                     self.imageView.image = image
                     //step1 create a URLSession
                     
-                  }
-               }
-            })
+                }
+            }
+        })
         
         
         
